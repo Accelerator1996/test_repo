@@ -1,0 +1,64 @@
+name: Check_dragonwell_setup_java_function
+
+on: [pull_request]
+
+jobs:
+  get_dragonwell8_linux_x64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dragonwell-releng/setup-java@main
+        with:
+          distribution: 'dragonwell'
+          java-version: '8'
+      - run: java -version
+
+  get_dragonwell11_linux_x64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dragonwell-releng/setup-java@main
+        with:
+          distribution: 'dragonwell'
+          java-version: '11'
+      - run: java -version
+
+  get_dragonwell17_linux_x64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dragonwell-releng/setup-java@main
+        with:
+          distribution: 'dragonwell'
+          java-version: '17'
+      - run: java -version
+
+  get_dragonwell8_linux_x64_with_specific_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dragonwell-releng/setup-java@main
+        with:
+          distribution: 'dragonwell'
+          java-version: '8.13.14'
+      - run: java -version
+
+  get_dragonwell11_linux_x64_with_specific_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dragonwell-releng/setup-java@main
+        with:
+          distribution: 'dragonwell'
+          java-version: '11.0.18'
+      - run: java -version
+
+  get_dragonwell17_linux_x64_with_specific_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dragonwell-releng/setup-java@main
+        with:
+          distribution: 'dragonwell'
+          java-version: '17.0.6'
+      - run: java -version
